@@ -1,0 +1,2 @@
+export const INSERT_PROJECTS =
+  "INSERT INTO projects_month   (html_url, name, forks_count, stargazers_count, open_issues_count, description, language, month) VALUES($1, $2, $3, $4, $5, $6, $7, EXTRACT(MONTH FROM NOW())) ON CONFLICT(html_url, month) DO UPDATE SET forks_count = EXCLUDED.forks_count, stargazers_count = EXCLUDED.stargazers_count, open_issues_count = EXCLUDED.open_issues_count, description = EXCLUDED.description, language = EXCLUDED.language";
